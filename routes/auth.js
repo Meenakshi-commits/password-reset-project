@@ -35,7 +35,7 @@ router.post('/api/forgot-password', async (req, res) => {
     },
   });
 
-  const resetURL = `http://localhost:3000/reset-password?token=${token}`;
+  const resetURL = `http://localhost:5000/reset-password?token=${token}`;
   const mailOptions = {
     from: 'no-reply@dummyapp.com',
     to: email,
