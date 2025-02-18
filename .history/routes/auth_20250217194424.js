@@ -8,27 +8,7 @@ const Settings = require('../models/settings');
 const router = express.Router();
 
 
-// POST: Sign In endpoint
-router.post('/api/signin', async (req, res) => {
-  try {
-    const { email, password } = req.body;
-    // Find user by email
-    const user = await User.findOne({ email });
-    if (!user) {
-      return res.status(400).json({ message: 'User not found.' });
-    }
-    // Compare password using bcrypt
-    const isMatch = await bcrypt.compare(password, user.password);
-    if (!isMatch) {
-      return res.status(400).json({ message: 'Invalid password.' });
-    }
-    // For simplicity, just return a success message (in a real app, you might generate a token)
-    res.json({ message: 'Sign in successful.' });
-  } catch (error) {
-    console.error('Sign in error:', error);
-    res.status(500).json({ message: 'Server error during sign in.' });
-  }
-});
+
 
 // POST: Forgot Password - Send Reset Link
 router.post('/api/forgot-password', async (req, res) => {
