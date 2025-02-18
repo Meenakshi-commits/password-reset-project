@@ -20,9 +20,7 @@ mongoose.connect(process.env.MONGO_URI, {
 // Import and use the routes
 const authRoutes = require('./routes/auth');
 const userRoutes = require('./routes/users');
-app.get('/', (req, res) => {
-  res.send('API is running');
-});
+
 app.use(authRoutes);
 app.use(userRoutes);
 
