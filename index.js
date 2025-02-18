@@ -23,10 +23,10 @@ const userRoutes = require('./routes/users');
 app.use(authRoutes);
 app.use(userRoutes);
 
-app.use(express.static(path.join(CLIENT, 'client', 'build')));
+app.use(express.static(path.join(__dirname, 'client', 'build')));
 
 app.get('*', (req, res) => {
-    res.sendFile(path.join(CLIENT/build, 'client', 'build', 'index.html'));
+    res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
   });
 
 const PORT = process.env.PORT || 5000;
